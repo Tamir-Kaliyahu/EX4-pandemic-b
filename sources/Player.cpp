@@ -63,7 +63,10 @@ namespace pandemic
 
     Player &Player::build()
     {
-        if (!my_board.is_research(curr_city) && cards.count(curr_city) == 1)
+        if (!my_board.is_research(curr_city) ){
+
+        
+        if( cards.count(curr_city) == 1)
         {
             my_board.research(curr_city);
             cards.erase(curr_city);
@@ -75,6 +78,11 @@ namespace pandemic
             throw invalid_argument{"can't build research station!"};
         }
         return *this;
+    }
+    
+    else{
+        return *this;
+    }
     }
 
     Player &Player::discover_cure(Color disease)
@@ -145,10 +153,6 @@ namespace pandemic
         {
             if (my_board[c]>0)
             {
-                cout<<"Color Black bool:" <<my_board.Cured_Des.at(Color::Black)<<endl;
-            cout<<"Color Blue bool:" <<my_board.Cured_Des.at(Color::Blue)<<endl;
-            cout<<"Color Yellow bool:" <<my_board.Cured_Des.at(Color::Yellow)<<endl;
-            cout<<"Color Red bool:" <<my_board.Cured_Des.at(Color::Red)<<endl;
                 if (my_board.Cured_Des.at(my_board.CityColor(c)))
                 {
 

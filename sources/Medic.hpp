@@ -12,5 +12,8 @@ namespace pandemic
             Medic(Board& myBoard, City c): Player(myBoard, c, "Medic") {}
             Player& treat(City c) override;
             Player& drive(City c) override;
+            Player& fly_direct(City dest)override;
+            Player& fly_charter(City dest)override;
+            Player& fly_shuttle(City dest)override;
     };
 }
